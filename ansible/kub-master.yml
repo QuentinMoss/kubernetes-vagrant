@@ -3,5 +3,4 @@
     become: yes
     roles:
       - role: base
-      - role: kubernetes-install
-      - role: kubernetes-config
+      - role: master-config

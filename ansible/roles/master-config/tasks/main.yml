@@ -1,0 +1,5 @@
+---
+  - name: Copy etcd configuration
+    copy: src=etcd.conf dest=/etc/etcd/etcd.conf group=root mode=0644
+  - name: Copy API server configuration
+    copy: src=apiserver dest=/etc/kubernetes/apiserver
