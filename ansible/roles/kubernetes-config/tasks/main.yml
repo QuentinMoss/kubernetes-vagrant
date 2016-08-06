@@ -1,0 +1,3 @@
+---
+  - name: Install kubernetes configuration file
+    copy: src=kubernetes-config dest=/etc/kubernetes/config owner=root group=root mode=0644

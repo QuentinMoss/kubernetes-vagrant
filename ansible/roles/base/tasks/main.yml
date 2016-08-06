@@ -1,0 +1,6 @@
+---
+  - name: Install vim
+    yum: name=vim state=present
+
+  - name: Set host file
+    template: src=hosts.j2 dest=/etc/hosts owner=root group=root mode=064

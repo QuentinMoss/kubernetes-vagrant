@@ -1,0 +1,9 @@
+---
+  - name: Install repository
+    copy: src=docker.repo dest=/etc/yum.repos.d/docker.repo owner=root group=root mode=0644
+
+  - name: Install kubernetes
+    yum: name=kubernetes enablerepo=virt7-docker-common-release state=present
+
+  - name: Install etcd
+    yum: name=etcd enablerepo=virt7-docker-common-release state=present
