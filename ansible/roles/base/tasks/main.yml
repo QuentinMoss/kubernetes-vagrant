@@ -1,6 +1,20 @@
 ---
+  # Install vim to keep sanity
   - name: Install vim
     yum: name=vim state=present
 
-  - name: Set host file
-    template: src=hosts.j2 dest=/etc/hosts owner=root group=root mode=064
+# Start kubernetes configuration
+  - name: Copy host file
+    template: src=hosts.j2 dest=/etc/hosts owner=root group=root mode=0644
+
+  - name: Install repository
+    copy: src=docker.repo dest=/etc/yum.repos.d/docker.repo owner=root group=root mode=0644
+
+  - name: Install kubernetes
+    yum: name=kubernetes enablerepo=virt7-docker-common-release state=present
+
+  - name: Install etcd
+    yum: name=etcd enablerepo=virt7-docker-common-release state=present
+
+  - name: Copy kubernetes configuration file
+    copy: src=kubernetes-config dest=/etc/kubernetes/config owner=root group=root mode=0644
