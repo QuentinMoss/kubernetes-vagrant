@@ -26,7 +26,7 @@ Vagrant.configure(2) do |config|
   # End master VM configuration
 
   # Start kubernetes minion VM configuration
-  config.vm.define "kub-minion", autostart: false, primary: false do |minion|
+  config.vm.define "kub-minion", autostart: true, primary: false do |minion|
     minion.vm.box = "bento/centos-7.2"
 
     # Set minion hostname
